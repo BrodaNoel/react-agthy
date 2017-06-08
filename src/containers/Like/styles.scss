@@ -1,0 +1,16 @@
+@import '~base/colors.scss';
+
+.Agthy-Like {
+  $width: 50px;
+
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  width: $width;
+  height: $width / 2;
+  border: 1px solid $color-primary;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: $backgrounds;
+  color: $color-primary;
+}
