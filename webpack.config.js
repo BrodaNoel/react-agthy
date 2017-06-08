@@ -5,12 +5,19 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'index.js',
-    libraryTarget: 'umd'
+    libraryTarget: 'commonjs2'
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+    modules: [
+      path.resolve('./src'),
+      path.resolve('./node_modules')
+    ]
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.js|jsx$/,
         include: path.resolve(__dirname, 'src'),
         exclude: /(node_modules|bower_components|build)/,
         use: {
@@ -19,6 +26,35 @@ module.exports = {
             presets: ['env']
           }
         }
+      },
+      {
+        test: /\.scss$/,
+        include: path.resolve(__dirname, 'src'),
+        use: [
+          {
+            loader: "style-loader" // creates style nodes from JS strings
+          },
+          {
+            loader: "css-loader" // translates CSS into CommonJS
+          },
+          {
+            loader: "sass-loader" // compiles Sass to CSS
+          }
+        ]
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: "style-loader" // creates style nodes from JS strings
+          },
+          {
+            loader: "css-loader" // translates CSS into CommonJS
+          },
+          {
+            loader: "less-loader" // compiles Less to CSS
+          }
+        ]
       }
     ]
   },
