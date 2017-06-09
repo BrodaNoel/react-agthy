@@ -1,5 +1,6 @@
 import React from 'react';
 import Reactions from 'containers/Reactions';
+import services from 'services';
 import './styles.scss';
 
 class Like extends React.Component {
@@ -12,7 +13,11 @@ class Like extends React.Component {
   ];
 
   onSelect = (reaction) => {
-    console.log('reaction selected', reaction);
+    services.backend.like({
+      customer: { id: 1, name: 'Fitexahold' },
+      reaction,
+      url: document.location.href
+    });
   }
 
   render() {
