@@ -5,5 +5,10 @@
   &-reaction {
     font-size: 30px;
     cursor: pointer;
+    opacity: 0.75;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }

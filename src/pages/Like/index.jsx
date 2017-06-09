@@ -18,6 +18,13 @@ class Like extends React.Component {
       reaction,
       url: document.location.href
     });
+
+    // TODO: Say THANKS!
+
+    setTimeout(
+      () => this.props.changeRoute('Start'),
+      1000
+    );
   }
 
   render() {
@@ -25,10 +32,10 @@ class Like extends React.Component {
       changeRoute: this.props.changeRoute
     };
 
-    // onClick={ () => {events.changeRoute('')} }
     return (
       <div className="Agthy-Like">
         <div className="Agthy-h1">how would you rate this content?</div>
+        <div className="Agthy-hr"></div>
 
         <Reactions
           reactions={this.reactions}
