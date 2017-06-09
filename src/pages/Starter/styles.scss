@@ -7,7 +7,7 @@
   height: $width;
   cursor: pointer;
 
-  > i.anticon-smile-o {
+  &-icon {
     font-size: calc(#{$width} * 0.60);
     line-height: $width;
   }

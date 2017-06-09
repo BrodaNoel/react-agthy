@@ -1,8 +1,6 @@
 import React from 'react';
 import './styles.scss';
 
-import Icon from 'antd/lib/icon';
-
 class Starter extends React.Component {
   render() {
     const events = {
@@ -11,7 +9,7 @@ class Starter extends React.Component {
 
     return (
       <div className="Agthy-Starter" onClick={() => {events.changeRoute('Like')}}>
-        <Icon type="smile-o" />
+        <div className="Agthy-Starter-icon">🙏</div>
       </div>
     );
   }

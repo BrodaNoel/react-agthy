@@ -3,9 +3,6 @@ import Starter from './pages/Starter';
 import Like from './pages/Like';
 import './index.scss';
 
-// Antd styles
-import 'antd/lib/icon/style';
-
 class Agthy extends React.Component {
   constructor(props) {
     super(props);
