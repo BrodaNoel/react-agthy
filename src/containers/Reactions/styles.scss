@@ -1,0 +1,9 @@
+.Agthy-Reactions {
+  display: flex;
+  justify-content: space-around;
+
+  &-reaction {
+    font-size: 30px;
+    cursor: pointer;
+  }
+}

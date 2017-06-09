@@ -1,6 +1,6 @@
 import React from 'react';
-import Starter from './containers/Starter';
-import Like from './containers/Like';
+import Starter from './pages/Starter';
+import Like from './pages/Like';
 import './index.scss';
 
 // Antd styles
@@ -23,7 +23,7 @@ class Agthy extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="Agthy">
         { this.state.route === 'Start' && <Starter changeRoute={this.changeRoute} /> }
         { this.state.route === 'Like' && <Like changeRoute={this.changeRoute} /> }
       </div>
