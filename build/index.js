@@ -2509,6 +2509,10 @@ var _Thanks = __webpack_require__(47);
 
 var _Thanks2 = _interopRequireDefault(_Thanks);
 
+var _utils = __webpack_require__(50);
+
+var _utils2 = _interopRequireDefault(_utils);
+
 __webpack_require__(13);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -2528,6 +2532,15 @@ var Agthy = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (Agthy.__proto__ || Object.getPrototypeOf(Agthy)).call(this, props));
 
     _this.changeRoute = function (newRoute) {
+      // If the user clicked in Agthy, let's add the events
+      // to close Agthy if the user click outside Aghty or press ESC.
+      if (_this.state.route === 'Start') {
+        var hideAgthy = function hideAgthy() {
+          _this.changeRoute('Start');
+        };
+        _utils2.default.attachCloseEvents(hideAgthy);
+      }
+
       _this.setState({
         route: newRoute
       });
@@ -2946,6 +2959,49 @@ if(false) {
 	// When the module is disposed, remove the <style> tags
 	module.hot.dispose(function() { update(); });
 }
+
+/***/ }),
+/* 50 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = {
+  /*
+   * Will attach Click and ESC keydown event to close Agthy.
+   */
+  attachCloseEvents: function attachCloseEvents(hideAgthy) {
+    var _clickEvent = void 0;
+    var _keyEvent = void 0;
+
+    _clickEvent = function clickEvent(e) {
+      var isAnAgthyElement = document.querySelector('.Agthy').contains(e.target);
+
+      if (!isAnAgthyElement) {
+        document.removeEventListener('click', _clickEvent);
+        document.removeEventListener('keydown', _keyEvent);
+        hideAgthy();
+      }
+    };
+
+    _keyEvent = function keyEvent(e) {
+      var isESC = e.keyCode === 27;
+
+      if (isESC) {
+        document.removeEventListener('click', _clickEvent);
+        document.removeEventListener('keydown', _keyEvent);
+        hideAgthy();
+      }
+    };
+
+    document.addEventListener('click', _clickEvent);
+    document.addEventListener('keydown', _keyEvent);
+  }
+};
 
 /***/ })
 /******/ ]);
