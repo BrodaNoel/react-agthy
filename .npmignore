@@ -1,1 +1,7 @@
+/node_modules
 /src
+.babelrc
+.editorconfig
+.gitignore
+.nvmrc
+webpack.config.js

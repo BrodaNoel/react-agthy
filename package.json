@@ -2,6 +2,9 @@
   "name": "react-agthy",
   "version": "0.0.3",
   "description": "React component to implement Agthy in React-sites",
+  "keywords": "react reactjs Agthy feedback",
+  "homepage": "http://agthy.com",
+  "bugs": "https://github.com/BrodaNoel/react-agthy/issues",
   "main": "build/index.js",
   "peerDependencies": {
     "react": "^15.5.4",
@@ -20,6 +23,10 @@
   "author": {
     "name": "Broda Noel",
     "email": "brodanoel@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BrodaNoel/react-agthy"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
