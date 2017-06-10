@@ -1526,7 +1526,7 @@ var Starter = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'Agthy-Starter-icon' },
-          '\uD83D\uDE4F'
+          '\uD83D\uDCA1'
         )
       );
     }

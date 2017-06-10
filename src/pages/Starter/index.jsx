@@ -9,7 +9,7 @@ class Starter extends React.Component {
 
     return (
       <div className="Agthy-Starter" onClick={() => {events.changeRoute('Like')}}>
-        <div className="Agthy-Starter-icon">🙏</div>
+        <div className="Agthy-Starter-icon">💡</div>
       </div>
     );
   }
