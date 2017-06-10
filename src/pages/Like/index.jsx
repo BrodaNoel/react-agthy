@@ -19,11 +19,11 @@ class Like extends React.Component {
       url: document.location.href
     });
 
-    // TODO: Say THANKS!
+    this.props.changeRoute('Thanks');
 
     setTimeout(
       () => this.props.changeRoute('Start'),
-      1000
+      2000
     );
   }
 

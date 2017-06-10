@@ -1439,11 +1439,11 @@ var Like = function (_React$Component) {
         url: document.location.href
       });
 
-      // TODO: Say THANKS!
+      _this.props.changeRoute('Thanks');
 
       setTimeout(function () {
         return _this.props.changeRoute('Start');
-      }, 1000);
+      }, 2000);
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -2505,6 +2505,10 @@ var _Like = __webpack_require__(11);
 
 var _Like2 = _interopRequireDefault(_Like);
 
+var _Thanks = __webpack_require__(47);
+
+var _Thanks2 = _interopRequireDefault(_Thanks);
+
 __webpack_require__(13);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -2542,7 +2546,8 @@ var Agthy = function (_React$Component) {
         'div',
         { className: 'Agthy' },
         this.state.route === 'Start' && _react2.default.createElement(_Starter2.default, { changeRoute: this.changeRoute }),
-        this.state.route === 'Like' && _react2.default.createElement(_Like2.default, { changeRoute: this.changeRoute })
+        this.state.route === 'Like' && _react2.default.createElement(_Like2.default, { changeRoute: this.changeRoute }),
+        this.state.route === 'Thanks' && _react2.default.createElement(_Thanks2.default, null)
       );
     }
   }]);
@@ -2613,7 +2618,7 @@ exports = module.exports = __webpack_require__(2)(undefined);
 
 
 // module
-exports.push([module.i, ".Agthy {\n  box-sizing: border-box;\n  position: fixed;\n  right: 10px;\n  bottom: 10px;\n  border: 1px solid #E9E9E9;\n  border-radius: 5px;\n  background-color: white;\n  color: rgba(0, 0, 0, 0.85);\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;\n  box-shadow: 0 0 5px 1px #E9E9E9;\n  /*\n  .Agthy-h3 {\n    color: $color-primary;\n    font-size: $h1 - 4px;\n    margin: 6px 0;\n  }\n  */ }\n  .Agthy * {\n    box-sizing: border-box; }\n  .Agthy .Agthy-h1 {\n    color: rgba(0, 0, 0, 0.85);\n    font-size: 16px;\n    margin: 10px 0; }\n  .Agthy .Agthy-h2 {\n    color: rgba(0, 0, 0, 0.85);\n    font-size: 14px;\n    margin: 8px 0; }\n  .Agthy .Agthy-hr {\n    border: none;\n    border-top: 1px solid #E9E9E9; }\n", ""]);
+exports.push([module.i, ".Agthy {\n  box-sizing: border-box;\n  position: fixed;\n  right: 10px;\n  bottom: 10px;\n  border: 1px solid #E9E9E9;\n  border-radius: 5px;\n  background-color: white;\n  color: rgba(0, 0, 0, 0.85);\n  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Helvetica, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', SimSun, sans-serif;\n  box-shadow: 0 0 5px 1px #E9E9E9;\n  /*\n  .Agthy-h3 {\n    color: $color-primary;\n    font-size: $h1 - 4px;\n    margin: 6px 0;\n    text-align: left;\n  }\n  */ }\n  .Agthy * {\n    box-sizing: border-box; }\n  .Agthy .Agthy-h1 {\n    color: rgba(0, 0, 0, 0.85);\n    font-size: 16px;\n    margin: 10px 0;\n    text-align: center; }\n  .Agthy .Agthy-h2 {\n    color: rgba(0, 0, 0, 0.85);\n    font-size: 14px;\n    margin: 8px 0;\n    text-align: left; }\n  .Agthy .Agthy-hr {\n    border: none;\n    border-top: 1px solid #E9E9E9; }\n", ""]);
 
 // exports
 
@@ -2860,6 +2865,87 @@ module.exports = function (css) {
 	return fixedCss;
 };
 
+
+/***/ }),
+/* 44 */,
+/* 45 */,
+/* 46 */,
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+__webpack_require__(49);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Thanks = function Thanks() {
+  return _react2.default.createElement(
+    'div',
+    { className: 'Agthy-Thanks' },
+    _react2.default.createElement(
+      'div',
+      { className: 'Agthy-h1' },
+      'We appreciate your feedback!'
+    )
+  );
+};
+
+exports.default = Thanks;
+
+/***/ }),
+/* 48 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(2)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".Agthy-Thanks {\n  width: 300px; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(48);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(3)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./styles.scss", function() {
+			var newContent = require("!!../../../node_modules/css-loader/index.js!../../../node_modules/sass-loader/lib/loader.js!./styles.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
 
 /***/ })
 /******/ ]);

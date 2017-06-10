@@ -1,6 +1,7 @@
 import React from 'react';
 import Starter from './pages/Starter';
 import Like from './pages/Like';
+import Thanks from './pages/Thanks';
 import './index.scss';
 
 class Agthy extends React.Component {
@@ -23,6 +24,7 @@ class Agthy extends React.Component {
       <div className="Agthy">
         { this.state.route === 'Start' && <Starter changeRoute={this.changeRoute} /> }
         { this.state.route === 'Like' && <Like changeRoute={this.changeRoute} /> }
+        { this.state.route === 'Thanks' && <Thanks /> }
       </div>
     );
   }
