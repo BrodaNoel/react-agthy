@@ -1,15 +1,16 @@
 import axios from 'axios';
 
-const baseUrl = 'https://us-central1-agthy-site.cloudfunctions.net/api';
+const baseUrl = 'https://us-central1-agthy-site.cloudfunctions.net/track';
 
 export default {
   backend: {
-    like: ({ customer, reaction, url }) => {
+    reaction: ({ customerId, reaction, url }) => {
       return axios({
-        url: `${baseUrl}/customer/${customer.id}/like`,
+        url: `${baseUrl}/reaction`,
         method: 'POST',
         data: {
           reaction,
+          customerId,
           url
         }
       });

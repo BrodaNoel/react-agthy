@@ -12,9 +12,9 @@ class Like extends React.Component {
     { value: 5, label: '🎉' }
   ];
 
-  onSelect = (reaction) => {
-    services.backend.like({
-      customer: { id: 1, name: 'Fitexahold' },
+  onSelect = reaction => {
+    services.backend.reaction({
+      customerId: this.props.customerId,
       reaction,
       url: document.location.href
     });

@@ -31,7 +31,7 @@ class Agthy extends React.Component {
     return (
       <div className="Agthy">
         { this.state.route === 'Start' && <Starter changeRoute={this.changeRoute} /> }
-        { this.state.route === 'Like' && <Like changeRoute={this.changeRoute} /> }
+        { this.state.route === 'Like' && <Like changeRoute={this.changeRoute} customerId={this.props.customer} /> }
         { this.state.route === 'Thanks' && <Thanks /> }
       </div>
     );
