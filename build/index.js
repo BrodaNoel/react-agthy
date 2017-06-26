@@ -1435,6 +1435,7 @@ var Like = function (_React$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Like.__proto__ || Object.getPrototypeOf(Like)).call.apply(_ref, [this].concat(args))), _this), _this.reactions = [{ value: 1, label: '😡' }, { value: 2, label: '👎' }, { value: 3, label: '😐' }, { value: 4, label: '👍' }, { value: 5, label: '🎉' }], _this.onSelect = function (reaction) {
       _services2.default.backend.reaction({
         customerId: _this.props.customerId,
+        campaignId: _this.props.campaignId,
         reaction: reaction,
         url: document.location.href
       });
@@ -1450,10 +1451,6 @@ var Like = function (_React$Component) {
   _createClass(Like, [{
     key: 'render',
     value: function render() {
-      var events = {
-        changeRoute: this.props.changeRoute
-      };
-
       return _react2.default.createElement(
         'div',
         { className: 'Agthy-Like' },
@@ -1580,36 +1577,40 @@ exports.default = Thanks;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var clickEvent = void 0;
+var keyEvent = void 0;
+
 exports.default = {
   /*
    * Will attach Click and ESC keydown event to close Agthy.
    */
   attachCloseEvents: function attachCloseEvents(hideAgthy) {
-    var _clickEvent = void 0;
-    var _keyEvent = void 0;
+    var _this = this;
 
-    _clickEvent = function clickEvent(e) {
-      var isAnAgthyElement = document.querySelector('.Agthy').contains(e.target);
+    clickEvent = function clickEvent(e) {
+      var isAnAgthyElement = e.target.className.indexOf('Agthy') === 0;
 
       if (!isAnAgthyElement) {
-        document.removeEventListener('click', _clickEvent);
-        document.removeEventListener('keydown', _keyEvent);
+        _this.removeCloseEvents();
         hideAgthy();
       }
     };
 
-    _keyEvent = function keyEvent(e) {
+    keyEvent = function keyEvent(e) {
       var isESC = e.keyCode === 27;
 
       if (isESC) {
-        document.removeEventListener('click', _clickEvent);
-        document.removeEventListener('keydown', _keyEvent);
+        _this.removeCloseEvents();
         hideAgthy();
       }
     };
 
-    document.addEventListener('click', _clickEvent);
-    document.addEventListener('keydown', _keyEvent);
+    document.addEventListener('click', clickEvent);
+    document.addEventListener('keydown', keyEvent);
+  },
+  removeCloseEvents: function removeCloseEvents() {
+    document.removeEventListener('click', clickEvent);
+    document.removeEventListener('keydown', keyEvent);
   }
 };
 
@@ -2617,6 +2618,11 @@ var Agthy = function (_React$Component) {
         _utils2.default.attachCloseEvents(hideAgthy);
       }
 
+      // If we return to the Start page, let's remove the events
+      if (newRoute === 'Start') {
+        _utils2.default.removeCloseEvents();
+      }
+
       _this.setState({
         route: newRoute
       });
@@ -2635,7 +2641,10 @@ var Agthy = function (_React$Component) {
         'div',
         { className: 'Agthy' },
         this.state.route === 'Start' && _react2.default.createElement(_Starter2.default, { changeRoute: this.changeRoute }),
-        this.state.route === 'Like' && _react2.default.createElement(_Like2.default, { changeRoute: this.changeRoute, customerId: this.props.customer }),
+        this.state.route === 'Like' && _react2.default.createElement(_Like2.default, {
+          changeRoute: this.changeRoute,
+          customerId: this.props.customer,
+          campaignId: this.props.campaign }),
         this.state.route === 'Thanks' && _react2.default.createElement(_Thanks2.default, null)
       );
     }
@@ -2669,6 +2678,7 @@ exports.default = {
   backend: {
     reaction: function reaction(_ref) {
       var customerId = _ref.customerId,
+          campaignId = _ref.campaignId,
           _reaction = _ref.reaction,
           url = _ref.url;
 
@@ -2678,6 +2688,7 @@ exports.default = {
         data: {
           reaction: _reaction,
           customerId: customerId,
+          campaignId: campaignId,
           url: url
         }
       });

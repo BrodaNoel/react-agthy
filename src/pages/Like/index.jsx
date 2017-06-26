@@ -15,6 +15,7 @@ class Like extends React.Component {
   onSelect = reaction => {
     services.backend.reaction({
       customerId: this.props.customerId,
+      campaignId: this.props.campaignId,
       reaction,
       url: document.location.href
     });
@@ -28,10 +29,6 @@ class Like extends React.Component {
   }
 
   render() {
-    const events = {
-      changeRoute: this.props.changeRoute
-    };
-
     return (
       <div className="Agthy-Like">
         <div className="Agthy-h1">how would you rate this content?</div>
