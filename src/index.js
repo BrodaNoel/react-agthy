@@ -22,6 +22,11 @@ class Agthy extends React.Component {
       utils.attachCloseEvents(hideAgthy);
     }
 
+    // If we return to the Start page, let's remove the events
+    if (newRoute === 'Start') {
+      utils.removeCloseEvents();
+    }
+
     this.setState({
       route: newRoute
     });
