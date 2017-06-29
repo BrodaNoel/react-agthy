@@ -16,7 +16,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Agthy />
+        <Agthy
+          customer="foo"
+          campaign="bar" />
       </div>
     );
   }
